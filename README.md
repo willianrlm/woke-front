@@ -1,5 +1,20 @@
 # woke-front
 
+Para executar:
+
+Opção 1:
+
+    [projeto] ng serve 
+    (Rodando em http://localhost:4200/)
+
+Opção 2:
+
+    [projeto] ng build
+    ~~copiar a pasta gerada 'dist' para seu ambiente preferido~~
+    ~~tendo instalado o http-server(npm install http-server)~~ 
+    [dist] http-server
+    (rodando na porta 8080 por padrão)
+
 Adicionadas depêndencias de forma manual:
     
     Bootstrap 5.0.1
