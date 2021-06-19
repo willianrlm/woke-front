@@ -1,0 +1,14 @@
+.container{
+  margin-top: 50px;
+  padding-bottom: 50px;
+}
+.btn{
+  margin: 3px;
+}
+.text-black{
+  color: #02022d;
+}
+.btn .text-white i{
+  color: white!important;
+}
+

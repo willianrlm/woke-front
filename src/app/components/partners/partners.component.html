@@ -1,0 +1,67 @@
+<div class="container">
+  <h3>Guia para parceiros.</h3>
+  <div class="row align-items-md-stretch">
+    <div class="col-md-12 partner-step">
+      <div class="h-100 p-5 text-dark bg-info rounded-3">
+        <h2>Primeiro, vamos autenticar:</h2>
+        <p>Deve chamar nossa API primeiramente enviando suas credênciais, se estiverem corretas, receberá seu token no retorno</p>
+        Pode ser testado com: google / 123654
+        <div class="input-group mb-3">
+          <button class="btn btn-primary" type="button" disabled>Post: </button>
+          <input type="text" class="form-control" placeholder="Link" aria-label="Link" aria-describedby="btn-test0" [(ngModel)]="link0">
+          <button class="btn btn-primary" type="button" id="btn-test0" (click)="teste0()">Testar</button>
+        </div>
+        <div *ngIf="retorno0 !== ''">
+          <h5>Token:</h5>
+          {{retorno0}}
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12 partner-step">
+      <div class="h-100 p-5 text-white bg-dark rounded-3">
+        <h2>Lista de usuários interessados em sua empresa:</h2>
+        <p>Um retorno JSON com um Array de usuário que deram
+          <i class="fa fa-thumbs-up"></i> Like
+          em sua empresa, baseados nas suas informações publicadas.</p>
+        <p>Para utilizar, é necessário adicionar o token recebido acima no Header de suas chamadas</p>
+        <div *ngIf="retorno0 !== ''">
+          Authorization: Bearer {{retorno0}}
+        </div>
+        Pode ser testado com o Id: 1
+        <div class="input-group mb-3">
+          <button class="btn btn-primary" type="button" disabled>Get: </button>
+          <input type="text" class="form-control" placeholder="Link" aria-label="Link" aria-describedby="btn-test1" [(ngModel)]="link1">
+          <button class="btn btn-primary" type="button" id="btn-test1" (click)="teste1()">Testar</button>
+        </div>
+        <div *ngIf="retorno1.length > 0">
+          <h5>Lista:</h5>
+          {{retorno1 | json}}
+        </div>
+        <div *ngIf="retorno1_1 !== ''">
+          <h5>Erro:</h5>
+          {{retorno1_1}}
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12 partner-step">
+      <div class="h-100 p-5 text-white bg-secondary border rounded-3">
+        <h2>Informações de um único usuário:</h2>
+        <p>A partir dos Id's fornecidos na lista, também pode optar por buscar apenas um usuário.</p>
+        Pode ser testado com o Id: 1
+        <div class="input-group mb-3">
+          <button class="btn btn-primary" type="button" disabled>Get: </button>
+          <input type="text" class="form-control" placeholder="Link" aria-label="Link" aria-describedby="btn-test2" [(ngModel)]="link2">
+          <button class="btn btn-primary" type="button" id="btn-test2" (click)="teste2()">Testar</button>
+        </div>
+        <div *ngIf="retorno2">
+          <h5>Candidato:</h5>
+          {{retorno2 | json}}
+        </div>
+        <div *ngIf="retorno2_1 !== ''">
+          <h5>Erro:</h5>
+          {{retorno2_1}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

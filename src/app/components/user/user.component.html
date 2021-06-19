@@ -1,0 +1,58 @@
+<div class="container">
+  <h2>Área Restrita do usuário: {{user.login}}</h2>
+  <app-messages></app-messages>
+  <form (ngSubmit)="onSubmit()" #form="ngForm" class="row">
+    <div class="col col-md-6 form-floating">
+      <input type="text" class="form-control" id="name" name="name" placeholder="Nome" [(ngModel)]="user.person.name">
+      <label for="name" class="form-label">Nome</label>
+    </div>
+    <div class="col col-md-6 form-floating">
+      <input type="date" class="form-control" id="birthday"  name="birthday" [(ngModel)]="user.person.birthday">
+      <label for="birthday" class="form-label">Data de Nascimento</label>
+    </div>
+
+    <h4 *ngIf="contacts.length > 0">Contatos</h4>
+    <div class="col-md-6 row">
+      <div *ngFor="let contact of user.person.contacts" class="col col-md-12">
+        <div class="row">
+          <div class="col-md-9 form-floating">
+            <input type="text" class="form-control" name="contact{{contact.id}}" id="contact{{contact.id}}" value="{{contact.value}}" [(ngModel)]="contact.value">
+            <label for="contact{{contact.id}}" class="form-label">Tipo: {{contact.type}}</label>
+          </div>
+          <div class="col-md-3">
+            <button class="btn btn-danger" (click)="removeContact(contact)">
+              <i class="fa fa-trash"></i> Remover
+            </button>
+          </div>
+        </div>
+        <hr>
+      </div>
+    </div>
+    <div class="col col-md-5 offset-md-1">
+      <button class="btn btn-lg btn-primary">
+        <i class="fa fa-save"></i> Salvar
+      </button>
+    </div>
+  </form>
+</div>
+<div class="container new-contact">
+  <h5>Novo Contato</h5>
+  <div class="row">
+    <div class="col-md-2">
+      <select class="form-select" id="type" name="type" [(ngModel)]="newContact.type" required>
+        <option value="EMAIL" selected>Email</option>
+        <option value="PHONE">Telefone</option>
+      </select>
+    </div>
+    <div class="col-md-7 form-floating">
+        <input type="text" class="form-control" id="contact" [(ngModel)]="newContact.value" placeholder="username@mail.provider.com / (XX) X XXXX XXXX">
+        <label for="contact" class="form-label">Valor</label>
+    </div>
+    <div class="col-md-3">
+      <button class="btn btn-outline-success" (click)="addContact()">
+        <i class="fa fa-plus-circle"></i>
+        Adicionar
+      </button>
+    </div>
+  </div>
+</div>

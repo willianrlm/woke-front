@@ -1,0 +1,10 @@
+<div *ngFor="let message of messages" class="alert row row-alert" [ngClass]="getMessageClass(message)" role="alert">
+  <div class="col col-md-11">
+    {{message.value}} / {{message.time | date: 'medium'}}
+  </div>
+  <div class="col col-md-1">
+    <button class="btn btn-outline-danger btn-alert" (click)="closeThis(message)">
+      <i class="fa fa-2x fa-window-close btn-alert-fa"></i>
+    </button>
+  </div>
+</div>

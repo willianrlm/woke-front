@@ -1,0 +1,20 @@
+<div class="container text-center">
+  <form (ngSubmit)="onSubmit()" #form="ngForm" class="form-signin">
+
+    <img class="mb-4" src="assets/woke.png" alt="" width="122" height="57">
+
+    <h3 class="h3 mb-3 fw-normal">Por favor entre</h3>
+
+    <div class="form-floating">
+      <input class="form-control" aria-describedby="loginHelp" type="text" name="login" id="login" [(ngModel)]="user.login" placeholder="Login" required="required">
+      <label for="login">Login/Username</label>
+    </div>
+    <div class="form-floating">
+      <input type="password" class="form-control" name="password" id="password" [(ngModel)]="user.password" placeholder="Senha" required="required">
+      <label for="password">Senha</label>
+    </div>
+    <app-messages></app-messages>
+    <button class="w-100 btn btn-lg btn-primary" type="submit" [disabled]="form.form.invalid">Entrar</button>
+    <p class="mt-5 mb-3 text-muted">© 2016–2021</p>
+  </form>
+</div>

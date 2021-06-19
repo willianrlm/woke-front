@@ -1,0 +1,9 @@
+.nav-link{
+  color:  white;
+  font-size: 16px;
+}
+.router-link-active{
+  color: deepskyblue;
+  background: rgba(0, 0, 0, 1);
+  border-radius: 2px;
+}

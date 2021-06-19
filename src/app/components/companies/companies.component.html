@@ -1,0 +1,29 @@
+<div class="container" xmlns="http://www.w3.org/1999/html">
+  <app-messages></app-messages>
+  <h2>Empresas</h2>
+  <div class="list-group" *ngFor="let company of companies">
+    <div class="card">
+      <div class="card-header"></div>
+      <div class="card-body">
+        <blockquote class="blockquote mb-0 row">
+          <div class="col col-sm-6 col-md-6 col-lg-8">
+            <p>{{company.name}}</p>
+            <footer class="blockquote-footer">{{company.description}} <cite title="Source Title">{{company.name}}</cite></footer>
+          </div>
+          <div class="col col-sm-6 col-md-6 col-lg-4">
+            <button class="btn btn-outline-secondary text-black" [ngClass]="{'btn-success text-white': isPositive(company)}" (click)="opine(company, 'POSITIVE')">
+              <i class="fa fa-thumbs-up"></i> Gostei
+            </button>
+            <button class="btn btn-outline-secondary text-black" [ngClass]="{'btn-info text-white': isNeutral(company)}" (click)="opine(company, 'NEUTRAL')">
+              <i class="fa fa-meh "></i> Meh
+            </button>
+            <button class="btn btn-outline-secondary text-black" [ngClass]="{'btn-danger text-white': isNegative(company)}" (click)="opine(company, 'NEGATIVE')">
+              <i class="fa fa-thumbs-down"></i> Não
+            </button>
+          </div>
+        </blockquote>
+      </div>
+    </div>
+    <br>
+  </div>
+</div>
